@@ -1,7 +1,8 @@
 const gulp = require('gulp'),
       imagemin = require('gulp-imagemin'),
       uglify = require('gulp-uglify'),
-      sass = require('gulp-sass');
+      sass = require('gulp-sass'),
+      concat = require('gulp-concat');
       
 
 /**
@@ -46,5 +47,21 @@ gulp.task('sass',()=>{
         .pipe(gulp.dest('dist/css'));
 });
 
+//Scripts
+gulp.task('scripts',()=>{
+    gulp.src('src/js/*.js')
+        .pipe(concat('main.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js'));
+});
 
-gulp.task('default',['message','copyHtml','imageMin','minify','sass']);
+
+gulp.task('watch',()=>{
+    gulp.watch('src/js/*.js',['scripts']);
+    gulp.watch('src/images/*',['imageMin']);
+    gulp.watch('src/images/*',['sass']);
+    gulp.watch('src/*html',['copyHtml']);
+});
+
+
+gulp.task('default',['message','copyHtml','imageMin','sass','scripts']);
