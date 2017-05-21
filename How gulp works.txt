@@ -1,0 +1,25 @@
+How gulp works:
+-------------
+	
+	Minification of scripts and styles
+	Concatenation
+	Cache busing
+	Testing,linting & optimization
+	Dev Servers
+
+How gulp works:
+--------------
+
+	* Build on node streams
+	* Pipelines/.pipe() operator
+	* Single purpose plugins
+	* Files not affected until all plugins are processed.
+
+	* Gulp is code over configuration
+	* Grunt is opposite
+	* Gulp is easier to read than grunt
+	* Gulp is based on streams, Grunt is based on files
+
+
+
+
